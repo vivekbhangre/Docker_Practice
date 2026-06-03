@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Threat Matrix // Port Audit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-mono min-h-screen p-4 md:p-8">
+
+    <header class="max-w-7xl mx-auto border-b border-red-500/30 pb-4 mb-8 flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 tracking-wider">
+                CORE_FIREWALL // SEC_MATRIX
+            </h1>
+            <p class="text-xs text-zinc-400 mt-1">Platform: Detached Python Layer // Node: Flask Gateway</p>
+        </div>
+        <div class="flex items-center space-x-2">
+            <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
+            <span class="text-xs uppercase font-bold text-red-500 tracking-widest">Active Guard</span>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-md shadow-2xl">
+            <h3 class="text-red-400 text-xs font-bold uppercase tracking-wider mb-4">// System Environment</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Language Base:</span> <span class="text-zinc-300">Python 3.9-slim</span></div>
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Framework:</span> <span class="text-zinc-300">Flask Micro-Engine</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500">Isolation Layer:</span> <span class="text-red-400 font-bold">Linux Sandbox Cgroup</span></div>
+            </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-md shadow-2xl">
+            <h3 class="text-red-400 text-xs font-bold uppercase tracking-wider mb-4">// Network Vectors</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Host Binding:</span> <span class="text-zinc-300">0.0.0.0:5000</span></div>
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Tunnel Protocol:</span> <span class="text-zinc-300">WSGI HTTP Engine</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500">Routing Integrity:</span> <span class="text-amber-400 font-bold">Unencrypted Test Gateway</span></div>
+            </div>
+        </div>
+
+        <div class="bg-zinc-900 border border-zinc-800 p-6 rounded-md shadow-2xl">
+            <h3 class="text-red-400 text-xs font-bold uppercase tracking-wider mb-4">// Security Parameters</h3>
+            <div class="space-y-3 text-sm">
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Access Node:</span> <span class="text-zinc-300">Root Subsystem</span></div>
+                <div class="flex justify-between border-b border-zinc-800/80 pb-2"><span class="text-zinc-500">Interface Hooks:</span> <span class="text-zinc-300">Flask Native Router</span></div>
+                <div class="flex justify-between"><span class="text-zinc-500">State Metrics:</span> <span class="text-emerald-400 font-bold">Stateless REST Architecture</span></div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-3 bg-zinc-900 border border-zinc-800 rounded-md overflow-hidden shadow-2xl">
+            <div class="bg-zinc-950 px-4 py-2.5 border-b border-zinc-800 flex justify-between items-center">
+                <div class="flex space-x-1.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                </div>
+                <span class="text-xs font-bold text-zinc-500">firewall_port_probe.py</span>
+                <div></div>
+            </div>
+            
+            <div class="p-6 space-y-4">
+                <p class="text-zinc-400 text-sm">
+                    Initialize a network audit mapping sequence. This instructs the Python container process to evaluate active loopback interfaces:
+                </p>
+                
+                <div>
+                    <button id="auditBtn" class="bg-red-600 hover:bg-red-500 active:bg-red-700 text-zinc-950 font-black text-xs px-5 py-3 rounded tracking-widest uppercase transition-colors">
+                        Execute Port Vulnerability Audit
+                    </button>
+                </div>
+
+                <div class="bg-black border border-zinc-800 rounded p-4 h-56 overflow-y-auto text-xs space-y-2 text-amber-500" id="terminalOutput">
+                    <p class="text-zinc-600">[SEC CORE INITIALIZED] Operational standby. Awaiting security manual trigger execution...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('auditBtn').addEventListener('click', async () => {
+            const outputBox = document.getElementById('terminalOutput');
+            
+            const lineCmd = document.createElement('p');
+            lineCmd.className = "text-red-500 font-bold";
+            lineCmd.innerText = `$ python3 firewall_port_probe.py --target=127.0.0.1 [Fired: ${new Date().toLocaleTimeString()}]`;
+            outputBox.appendChild(lineCmd);
+
+            try {
+                // Call the Flask API target endpoint directly across the container layer
+                const res = await fetch('/api/audit');
+                const data = await res.json();
+                
+                const lineMeta = document.createElement('p');
+                lineMeta.className = "text-zinc-400 pl-2";
+                lineMeta.innerText = `[INFO] Node Status: ${data.status} // System Signature: ${data.node_id} // Sync Time: ${data.audit_timestamp}`;
+                outputBox.appendChild(lineMeta);
+
+                // Map results into rows
+                data.network_ports.forEach(p => {
+                    const linePort = document.createElement('p');
+                    linePort.className = "text-emerald-400 pl-4";
+                    linePort.innerText = `➔ [PORT ${p.port}] Service: ${p.service.padEnd(20)} Status: ${p.status.padEnd(10)} Security Class: [${p.flag}]`;
+                    outputBox.appendChild(linePort);
+                });
+            } catch (err) {
+                const lineErr = document.createElement('p');
+                lineErr.className = "text-red-600 pl-4 font-bold animate-pulse";
+                lineErr.innerText = `➔ ERROR: Communication pipeline disrupted. Gateway bridge missing connection mapping rules.`;
+                outputBox.appendChild(lineErr);
+            }
+            
+            outputBox.scrollTop = outputBox.scrollHeight;
+        });
+    </script>
+</body>
+</html>
