@@ -200,6 +200,8 @@ To verify that all four application stacks are successfully containerized, isola
 *Status: Lightweight Python web server actively handling live browser requests on port 5000.*
 
 ### 4. ⚛️ React.js Frontend Application (Port 80)
+<img width="956" height="758" alt="building_running_docker_image_for_reactjs" src="https://github.com/user-attachments/assets/8b087299-e417-4671-be6e-aa01bbb332f9" />
+<img width="1919" height="1079" alt="accessing-reactjs_web" src="https://github.com/user-attachments/assets/658fb7ab-4ef3-40b2-b047-2656b33cc2ad" />
 
 *Status: Live frontend web UI rendering the interactive emoji search application directly over standard HTTP.*
 
