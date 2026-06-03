@@ -132,7 +132,7 @@ docker build -t traditional-image ./java
 docker run -d -p 8081:8080 --name traditional-container traditional-image
 ```
 
-#### 🍃 Java Spring Boot Full-Stack Application
+#### 🍃 Java Spring Boot Application
 ```bash
 docker build -t simple-boot-image ./springboot
 docker run -d -p 8080:8080 --name simple-boot-container simple-boot-image
